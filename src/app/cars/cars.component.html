@@ -1,0 +1,75 @@
+<!--<p>cars works!</p>-->
+<!--&lt;!&ndash;<button [disabled]="!canAddCar" class="btn btn-primary">Add Car</button>&ndash;&gt;-->
+<!--<input type="text" class="form-control" [(ngModel)]="carName">-->
+<!--<button  (click)="addCar(carName)" class="btn btn-primary">Add Car</button>-->
+<!--<p *ngIf="!addCarStatus2; else successStatus">Car dont add</p>-->
+<!--<ng-template #successStatus>-->
+<!--  <p >Car Add</p>-->
+<!--</ng-template>-->
+<!--<button  (click)="Event()" class="btn btn-primary">Add Car</button>-->
+
+<!--<p>{{addCarStatus}}</p>-->
+<!--<hr>-->
+<!--<app-car *ngFor="let car of cars"></app-car>-->
+
+
+
+<!--<ul>-->
+<!--  <li *ngFor="let car of cars; let index = index">-->
+
+<!--    <div-->
+<!--      [ngStyle]="{backgroundColor: (index+1) % 2 === 0 ? 'red': 'blue', 'color': 'white'}"-->
+<!--    [ngClass]="{'big-text': setBigCarText(car)}"-->
+<!--    >-->
+<!--      {{index + 1}}, {{car}}-->
+<!--    </div>-->
+<!--  </li>-->
+<!--</ul>-->
+
+<!--<ul>-->
+<!--  <li *ngFor="let date of dates; let index = index">-->
+
+<!--    <div>-->
+<!--&lt;!&ndash;      {{index + 1}}, {{date | date:'short'}} Пайпи &ndash;&gt;-->
+<!--      {{index + 1}}, {{date | uppercase}}--> <!--Для того щоб застосувати uppercase до дати треба привести дату до стрінга це зробити можна в .toDateString()-->
+<!--    </div>-->
+<!--  </li>-->
+<!--</ul>-->
+
+<!--<ul>-->
+<!--  <li *ngFor="let item of items; let index = index">-->
+
+<!--    {{item.id}}, {{item.name}}-->
+<!--  </li>-->
+<!--</ul>-->
+
+<!--<hr>-->
+
+<!--<input   [(ngModel)]="inputText" type="text" class="form-control">-->
+
+<!--<input (input)="onKeyUp($event)"   type="text" class="form-control">-->
+<!--<input #myInp (input)="onKeyUp2(myInp.value)"   type="text" class="form-control">-->
+<!--<input (keyup)="onKeyOnEnter($event)"   type="text" class="form-control">&lt;!&ndash;keyup.enter&ndash;&gt;-->
+<!--///////////////////  #myInp - локальна референція ////////////// -->
+<!--<p>{{inputText}}</p>-->
+
+<!--///////////////////////////////////////////////////////////////////////////////////////////////-->
+<!--Block3-->
+<!--Переносимо в add-car.component-->
+<!--Car Name:<input type="text" class="form-control" [(ngModel)]="carName">-->
+<!--Car Year:<input type="text" class="form-control" [(ngModel)]="carYear">-->
+<!--<button  (click)="addCar()" class="btn btn-primary">Add Car</button>-->
+
+<!--<hr>-->
+
+<!--<app-car *ngFor="let car of cars"  [carItem]="car"></app-car>-->
+
+<!-- carItem - компонент який буде відслідковувати зміни і приймати їх в себе для того щоб прийняти компонент в класі car.component.ts  @Input('carItem') carItem: {name: string, year: number};-->
+<!--Одним словом ми робимо цикл з даними з cars і перезаписуємо їх в car після чого виводимо в car.html і викликаємо цей компонент в cars -->
+<p>Form add cars</p>
+<hr>
+<app-add-car (onAddCar)="updateCarList($event)"></app-add-car>
+<hr>
+
+<app-car *ngFor="let car of cars"  [carItem]="car"></app-car> <!-- carItem - компонент який буде відслідковувати зміни і приймати їх в себе для того щоб прийняти компонент в класі car.component.ts  @Input('carItem') carItem: {name: string, year: number};-->
+<!--Одним словом ми робимо цикл з даними з cars і перезаписуємо їх в car після чого виводимо в car.html і викликаємо цей компонент в cars -->

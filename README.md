@@ -1,4 +1,4 @@
-# Ng2CourseTheory
+# 3 way communication between components Ng2CourseTheory
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
 
